@@ -15,3 +15,21 @@ The included `Makefile` has been tested on Linux and OS X systems in the past, a
 ./make
 ```
 
+The binary `dpll` should result, and can be called with a single parameter: the cnf file to be processed. A few such files are provided in the directory `cnf`.
+
+E.g.,
+```
+./dpll ./cnf/simple_v3_c2.cnf
+([],[1,2,-3])
+```
+
+The above result is a 2-tuple:
+* The first is any remaining clauses in the CNF (if search fails)
+* the second is the variable assignment: [1, 2, -3]
+
+The empty set of remaining clauses here indicates a successful assignment *was found.*
+
+### Input format
+
+Input files are in [DIMACS format](https://people.sc.fsu.edu/~jburkardt/data/cnf/cnf.html), where the CNF is expressed one clause per line, with variables represented as positive or negative integers.
+
